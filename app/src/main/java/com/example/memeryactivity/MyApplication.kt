@@ -31,7 +31,7 @@ class MyApplication : Application() {
                 it.init(this)
                 Log.e("tag1", "IMatrixManager")
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             e.printStackTrace()
         }
     }
