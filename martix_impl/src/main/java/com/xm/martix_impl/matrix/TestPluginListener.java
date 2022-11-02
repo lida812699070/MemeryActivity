@@ -1,4 +1,4 @@
-package com.example.memeryactivity.matrix;
+package com.xm.martix_impl.matrix;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

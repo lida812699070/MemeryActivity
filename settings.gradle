@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MemeryActivity"
 include ':app'
+include ':martix_interface'
+include ':martix_impl'

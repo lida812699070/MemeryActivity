@@ -1,4 +1,4 @@
-package com.example.memeryactivity.matrix;/*
+package com.xm.martix_impl.matrix;/*
  * Tencent is pleased to support the open source community by making wechat-matrix available.
  * Copyright (C) 2018 THL A29 Limited, a Tencent company. All rights reserved.
  * Licensed under the BSD 3-Clause License (the "License");
