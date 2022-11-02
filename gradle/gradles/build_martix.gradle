@@ -17,6 +17,5 @@ matrix {
     }
 }
 dependencies {
-    implementation project(":martix_interface")
     implementation project(":martix_impl")
 }
