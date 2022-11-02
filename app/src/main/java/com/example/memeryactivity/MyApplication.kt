@@ -14,13 +14,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val serviceLoader = ServiceLoader.load(IMyServiceLoader::class.java)
-        serviceLoader.forEach {
-            Log.e("tag1", "${it.sayHello()}")
-        }
         newInstant = this
-        Log.e("tag1", "=========")
-
         initMatrix()
     }
 
