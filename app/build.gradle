@@ -3,7 +3,19 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-apply from: "${rootDir}/gradle/gradles/build_martix.gradle"
+def matrixConfigPath = "../config/matrix_config.properties"
+//根据jenkins配置加载blockCanary
+
+try {
+    def matrixConfigProperties = new Properties()
+    matrixConfigProperties.load(new FileInputStream(file(matrixConfigPath)))
+    if (Boolean.parseBoolean(("${matrixConfigProperties["MATRIX_BUILD"]}"))) {
+        apply from: "${rootDir}/gradle/gradles/build_martix.gradle"
+    }
+} catch (Exception e) {
+    println e.message
+    println "不加载matrix监测"
+}
 
 android {
     compileSdk 32
