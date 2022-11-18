@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 def matrixConfigPath = "../config/matrix_config.properties"
@@ -75,4 +76,9 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     implementation project(":martix_interface")
+
+    def room_version = "2.4.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
 }

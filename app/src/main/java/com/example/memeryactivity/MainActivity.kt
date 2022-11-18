@@ -13,6 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.memeryactivity.room.User
+import com.example.memeryactivity.room.UserRoomDatabase
 import java.io.File
 import kotlin.concurrent.thread
 
@@ -25,14 +27,24 @@ class MainActivity : AppCompatActivity() {
             BitmapFactory.decodeResource(resources, R.mipmap.goolgetestcsee)
         val iv = findViewById<ImageView>(R.id.iv)
         findViewById<TextView>(R.id.tvBtn).setOnClickListener {
-            Thread.sleep(2000)
-            startActivity(Intent(this, MainActivity4::class.java))
+//            Thread.sleep(2000)
+//            startActivity(Intent(this, MainActivity4::class.java))
 //            openFile()
 //            if (decodeResource == null) {
 //                iv.setImageBitmap(null)
 //            } else if (!decodeResource!!.isRecycled) {
 //                iv.setImageBitmap(decodeResource)
 //            }
+
+            thread {
+                val userDao = UserRoomDatabase.getDatabase(this).userDao()
+                userDao.insertUser(User("lida1", 18))
+                Log.e("tag1", "${userDao.getUserByName("lida1")}")
+                userDao.updateUser(User("lida1", 22))
+                Log.e("tag1", "${userDao.getUserByName("lida1")}")
+//                userDao.deleteUser(User("lida", 0))
+//                Log.e("tag1", "${userDao.getUserByName("lida")}")
+            }
         }
         findViewById<TextView>(R.id.tvBtn3).setOnClickListener {
             val intent = Intent(this, MainActivity3::class.java)
